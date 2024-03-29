@@ -198,66 +198,89 @@ using System.Linq;
 
 public abstract class FootballTeam
 {
-    public string Name { get; set; }
-    public int GoalsScored { get; set; }
-    public int GoalsConceded { get; set; }
+  public string Name { get; private set; }
+  public int GoalsScored { get; private set; }
+  public int GoalsConceded { get; private set; }
 
-    public abstract int CalculatePoints();
+  public FootballTeam(string name, int goalsScored, int goalsConceded)
+  {
+      Name = name;
+      GoalsScored = goalsScored;
+      GoalsConceded = goalsConceded;
+  }
+
+  public abstract int CalculatePoints();
 }
 
 public class WomenFootballTeam : FootballTeam
 {
-    public override int CalculatePoints()
-    {
-        if (GoalsScored > GoalsConceded)
-            return 3;
-        else if (GoalsScored == GoalsConceded)
-            return 1;
-        else
-            return 0;
-    }
+  public WomenFootballTeam(string name, int goalsScored, int goalsConceded) : base(name, goalsScored, goalsConceded) { }
+
+  public override int CalculatePoints()
+  {
+      if (GoalsScored > GoalsConceded)
+          return 3;
+      else if (GoalsScored == GoalsConceded)
+          return 1;
+      else
+          return 0;
+  }
 }
 
 public class MenFootballTeam : FootballTeam
 {
-    public override int CalculatePoints()
-    {
-        if (GoalsScored > GoalsConceded)
-            return 3;
-        else if (GoalsScored == GoalsConceded)
-            return 1;
-        else
-            return 0;
-    }
+  public MenFootballTeam(string name, int goalsScored, int goalsConceded) : base(name, goalsScored, goalsConceded) { }
+
+  public override int CalculatePoints()
+  {
+      if (GoalsScored > GoalsConceded)
+          return 3;
+      else if (GoalsScored == GoalsConceded)
+          return 1;
+      else
+          return 0;
+  }
 }
 
 class Program
 {
-    static void Main()
-    {
-        List<FootballTeam> teams = new List<FootballTeam>
-        {
-            new WomenFootballTeam { Name = "ЦСКА", GoalsScored = 5, GoalsConceded = 2 },
-            new MenFootballTeam { Name = "Динамо", GoalsScored = 4, GoalsConceded = 3 },
-            new MenFootballTeam { Name = "Спартак", GoalsScored = 3, GoalsConceded = 5 }
-        };
+  static void Main()
+  {
+      List<FootballTeam> menTeams = new List<FootballTeam>
+      {
+          new MenFootballTeam("Динамо", 4, 3),
+          new MenFootballTeam("Спартак", 3, 5)
+      };
 
-        teams.Sort((x, y) =>
-        {
-            int pointsComparison = y.CalculatePoints().CompareTo(x.CalculatePoints());
-            if (pointsComparison != 0)
-                return pointsComparison;
+      List<FootballTeam> womenTeams = new List<FootballTeam>
+      {
+          new WomenFootballTeam("ЦСКА", 5, 2)
+      };
 
-            return x.Name.CompareTo(y.Name);
-        });
+      List<FootballTeam> allTeams = new List<FootballTeam>();
+      allTeams.AddRange(menTeams);
+      allTeams.AddRange(womenTeams);
 
-        int rank = 1;
-        foreach (var team in teams)
-        {
-            System.Console.OutputEncoding = System.Text.Encoding.UTF8;
-            string gender = team is WomenFootballTeam ? "женская команда" : "мужская команда";
-            Console.WriteLine($"{rank}. {team.Name} - {gender} {team.CalculatePoints()} баллов");
-            rank++;
-        }
-    }
+      foreach (var team in allTeams)
+      {
+          Console.WriteLine($"{team.Name} - {team.CalculatePoints()} баллов");
+      }
+
+      allTeams.Sort((x, y) =>
+      {
+          int pointsComparison = y.CalculatePoints().CompareTo(x.CalculatePoints());
+          if (pointsComparison != 0)
+              return pointsComparison;
+
+          return x.Name.CompareTo(y.Name);
+      });
+
+      int rank = 1;
+      foreach (var team in allTeams)
+      {
+          string gender = team is WomenFootballTeam ? "женская команда" : "мужская команда";
+          Console.WriteLine($"{rank}. {team.Name} - {gender} {team.CalculatePoints()} баллов");
+          rank++;
+      }
+  }
 }
