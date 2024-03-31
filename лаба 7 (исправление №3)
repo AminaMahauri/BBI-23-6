@@ -1,0 +1,90 @@
+Уровень 3 номер 4
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public abstract class FootballTeam
+{
+    public  string Name { get; private set; }
+    public  int GoalsScored { get; private set; }
+    public int GoalsConceded { get; private set; }
+
+    public FootballTeam(string name, int goalsScored, int goalsConceded)
+    {
+        Name = name;
+        GoalsScored = goalsScored;
+        GoalsConceded = goalsConceded;
+    }
+
+    public abstract int CalculatePoints();
+}
+
+public class MenFootballTeam : FootballTeam
+{
+    public MenFootballTeam(string name, int goalsScored, int goalsConceded) : base(name, goalsScored, goalsConceded) { }
+
+    public override int CalculatePoints()
+    {
+        if (GoalsScored > GoalsConceded)
+            return 3;
+        else if (GoalsScored == GoalsConceded)
+            return 1;
+        else
+            return 0;
+    }
+}
+
+public class WomenFootballTeam : FootballTeam
+{
+    public WomenFootballTeam(string name, int goalsScored, int goalsConceded) : base(name, goalsScored, goalsConceded) { }
+
+    public override int CalculatePoints()
+    {
+        if (GoalsScored > GoalsConceded)
+            return 3;
+        else if (GoalsScored == GoalsConceded)
+            return 1;
+        else
+            return 0;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        List<FootballTeam> menTeams = new List<FootballTeam>
+        {
+            new MenFootballTeam("Динамо", 4, 3),
+            new MenFootballTeam("Спартак", 3, 5),
+            new MenFootballTeam("Зенит", 2, 1)
+        };
+
+        List<FootballTeam> womenTeams = new List<FootballTeam>
+        {
+            new WomenFootballTeam("ЦСКА", 5, 2),
+            new WomenFootballTeam("Локомотив", 1, 1),
+            new WomenFootballTeam("Рубин", 3, 4)
+        };
+
+        List<FootballTeam> allTeams = new List<FootballTeam>();
+        allTeams.AddRange(menTeams);
+        allTeams.AddRange(womenTeams);
+
+        List<MenFootballTeam> maleTeams = allTeams.OfType<MenFootballTeam>().ToList();
+        List<WomenFootballTeam> femaleTeams = allTeams.OfType<WomenFootballTeam>().ToList();
+
+        maleTeams.Sort((x, y) => y.CalculatePoints().CompareTo(x.CalculatePoints()));
+        femaleTeams.Sort((x, y) => y.CalculatePoints().CompareTo(x.CalculatePoints()));
+
+        FootballTeam winningTeam = maleTeams[0].CalculatePoints() > femaleTeams[0].CalculatePoints() ? (FootballTeam)maleTeams[0] : (FootballTeam)femaleTeams[0];
+
+        foreach (var team in allTeams)
+        {
+            System.Console.OutputEncoding = System.Text.Encoding.UTF8;
+            Console.WriteLine($"{team.Name} - {team.CalculatePoints()} баллов");
+        }
+
+        Console.WriteLine($"Победитель: {winningTeam.Name}");
+    }
+}
