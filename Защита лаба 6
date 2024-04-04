@@ -1,0 +1,114 @@
+Уровень 1 
+sing System;
+using System.Collections.Generic;
+using System.Linq;
+
+class Program
+{
+    static void Main(string[] args)
+    {
+        System.Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+        List<Runner> runners = new List<Runner>();
+
+        runners.Add(new Runner("Махаури", "Группа 1", "Тренер Морозова ", 12));
+        runners.Add(new Runner("Галямова", "Группа 2", "Тренера Немирович", 11));
+        runners.Add(new Runner("Смирнова", "Группа 4", "Тренер Казанцев", 10));
+        runners.Add(new Runner("Молокова", "Группа 3", "Тренер Песьяков", 9));
+
+        Console.WriteLine("Результаты кросса:");
+
+        InsertionSort(runners);
+
+        foreach (var runner in runners)
+        {
+            runner.PrintInfo();
+        }
+
+        int passedNorm = runners.Count(runner => runner.Result <= 10);
+        Console.WriteLine($"\nОбщее количество участниц, выполнивших норматив: {passedNorm}");
+    }
+
+    static void InsertionSort(List<Runner> runners)
+    {
+        for (int i = 1; i < runners.Count; i++)
+        {
+            Runner currentRunner = runners[i];
+            int j = i - 1;
+
+            while (j >= 0 && runners[j].Result > currentRunner.Result)
+            {
+                runners[j + 1] = runners[j];
+                j--;
+            }
+
+            runners[j + 1] = currentRunner;
+        }
+    }
+}
+
+struct Runner
+{
+    public string Surname { get; }
+    public string Group { get; }
+    public string TeacherSurname { get; }
+    public double Result { get; }
+
+    public Runner(string surname, string group, string teacherSurname, double result)
+    {
+        Surname = surname;
+        Group = group;
+        TeacherSurname = teacherSurname;
+        Result = result;
+    }
+
+    public void PrintInfo()
+    {
+        Console.WriteLine($"{Surname}\t\t{Group}\t\t{TeacherSurname}\t\t{Result:F2}\t\t{(Result <= 10 ? "Выполнен" : "Не выполнен")}");
+    }
+}
+Уровень 3 
+using System;
+
+class Team
+{
+    public string Name { get; set; }
+    public int Points { get; set; }
+    public int Goals { get; set; }
+    public int Miss { get; set; }
+
+    public Team(string name, int points, int goals, int miss)
+    {
+        Name = name;
+        Points = points;
+        Goals = goals;
+        Miss = miss;
+    }
+
+    public void Match(Team opponent, int goals, int miss)
+    {
+        if (goals > miss)
+        {
+            this.Points += 3;
+        }
+        else if (goals == miss)
+        {
+            this.Points += 1;
+        }
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        System.Console.OutputEncoding = System.Text.Encoding.UTF8;
+        Team team1 = new Team("Team1", 0, 0, 0);
+        Team team2 = new Team("Team2", 0, 0, 0);
+
+        team1.Match(team2, 3, 1);
+
+        Console.WriteLine($"Очки команды {team1.Name} после матча: {team1.Points}");
+        Console.WriteLine($"Очки команды {team2.Name} после матча: {team2.Points}");
+    }
+}
