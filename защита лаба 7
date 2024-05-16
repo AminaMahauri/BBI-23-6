@@ -1,0 +1,132 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+
+public abstract class FootballTeam
+{
+    public string Name { get; private set; }
+    public int GoalsScored { get; private set; }
+    public int GoalsConceded { get; private set; }
+
+    public FootballTeam(string name, int goalsScored, int goalsConceded)
+    {
+        Name = name;
+        GoalsScored = goalsScored;
+        GoalsConceded = goalsConceded;
+    }
+
+    public abstract int CalculatePoints();
+
+    public static List<FootballTeam> MergeSort(List<FootballTeam> teams)
+    {
+        if (teams.Count <= 1)
+            return teams;
+
+        int mid = teams.Count / 2;
+        var left = teams.Take(mid).ToList();
+        var right = teams.Skip(mid).ToList();
+
+        left = MergeSort(left);
+        right = MergeSort(right);
+
+        return Merge(left, right);
+    }
+
+    private static List<FootballTeam> Merge(List<FootballTeam> left, List<FootballTeam> right)
+    {
+        var result = new List<FootballTeam>();
+        int leftIndex = 0;
+        int rightIndex = 0;
+
+        while (leftIndex < left.Count && rightIndex < right.Count)
+        {
+            if (left[leftIndex].CalculatePoints() >= right[rightIndex].CalculatePoints())
+            {
+                result.Add(left[leftIndex]);
+                leftIndex++;
+            }
+            else
+            {
+                result.Add(right[rightIndex]);
+                rightIndex++;
+            }
+        }
+
+        while (leftIndex < left.Count)
+        {
+            result.Add(left[leftIndex]);
+            leftIndex++;
+        }
+
+        while (rightIndex < right.Count)
+        {
+            result.Add(right[rightIndex]);
+            rightIndex++;
+        }
+
+        return result;
+    }
+}
+
+public class MenFootballTeam : FootballTeam
+{
+    public MenFootballTeam(string name, int goalsScored, int goalsConceded) : base(name, goalsScored, goalsConceded) { }
+
+    public override int CalculatePoints()
+    {
+        if (GoalsScored > GoalsConceded)
+            return 3;
+        else if (GoalsScored == GoalsConceded)
+            return 1;
+        else
+            return 0;
+    }
+}
+
+public class WomenFootballTeam : FootballTeam
+{
+    public WomenFootballTeam(string name, int goalsScored, int goalsConceded) : base(name, goalsScored, goalsConceded) { }
+
+    public override int CalculatePoints()
+    {
+        if (GoalsScored > GoalsConceded)
+            return 3;
+        else if (GoalsScored == GoalsConceded)
+            return 2;
+        else
+            return 0;
+    }
+}
+
+class Program
+{
+    static void Main()
+    {
+        List<FootballTeam> menTeams = new List<FootballTeam>
+        {
+            new MenFootballTeam("Динамо", 4, 3),
+            new MenFootballTeam("Спартак", 3, 5),
+            new MenFootballTeam("Зенит", 2, 1)
+        };
+
+        List<FootballTeam> womenTeams = new List<FootballTeam>
+        {
+            new WomenFootballTeam("ЦСКА", 5, 2),
+            new WomenFootballTeam("Локомотив", 1, 1),
+            new WomenFootballTeam("Рубин", 3, 4)
+        };
+
+        List<FootballTeam> allTeams = new List<FootballTeam>();
+        allTeams.AddRange(menTeams);
+        allTeams.AddRange(womenTeams);
+
+        allTeams = FootballTeam.MergeSort(allTeams);
+        System.Console.OutputEncoding = System.Text.Encoding.UTF8;
+
+        Console.WriteLine("All Teams:");
+        foreach (var team in allTeams)
+        {
+            Console.WriteLine($"{team.Name} - Points: {team.CalculatePoints()}");
+        }
+    }
+}
