@@ -1,0 +1,34 @@
+C:/уроки/Lab9_3/Lab9_3/bin/Debug/net6.0/Lab9_3.exe
+C:/уроки/Lab9_3/Lab9_3/bin/Debug/net6.0/Lab9_3.deps.json
+C:/уроки/Lab9_3/Lab9_3/bin/Debug/net6.0/Lab9_3.runtimeconfig.json
+C:/уроки/Lab9_3/Lab9_3/bin/Debug/net6.0/Lab9_3.dll
+C:/уроки/Lab9_3/Lab9_3/bin/Debug/net6.0/Lab9_3.pdb
+C:/уроки/Lab9_3/Lab9_3/obj/Debug/net6.0/Lab9_3.csproj.AssemblyReference.cache
+C:/уроки/Lab9_3/Lab9_3/obj/Debug/net6.0/Lab9_3.GeneratedMSBuildEditorConfig.editorconfig
+C:/уроки/Lab9_3/Lab9_3/obj/Debug/net6.0/Lab9_3.AssemblyInfoInputs.cache
+C:/уроки/Lab9_3/Lab9_3/obj/Debug/net6.0/Lab9_3.AssemblyInfo.cs
+C:/уроки/Lab9_3/Lab9_3/obj/Debug/net6.0/Lab9_3.csproj.CoreCompileInputs.cache
+C:/уроки/Lab9_3/Lab9_3/obj/Debug/net6.0/Lab9_3.dll
+C:/уроки/Lab9_3/Lab9_3/obj/Debug/net6.0/refint/Lab9_3.dll
+C:/уроки/Lab9_3/Lab9_3/obj/Debug/net6.0/Lab9_3.pdb
+C:/уроки/Lab9_3/Lab9_3/obj/Debug/net6.0/Lab9_3.genruntimeconfig.cache
+C:/уроки/Lab9_3/Lab9_3/obj/Debug/net6.0/ref/Lab9_3.dll
+C:/уроки/Lab9_3/Lab9_3/bin/Debug/net6.0/Newtonsoft.Json.dll
+C:/уроки/Lab9_3/Lab9_3/obj/Debug/net6.0/Lab9_3.csproj.CopyComplete
+/Users/amnat/Downloads/9 лаба/Lab9_3/Lab9_3/bin/Debug/net6.0/Lab9_3
+/Users/amnat/Downloads/9 лаба/Lab9_3/Lab9_3/bin/Debug/net6.0/Lab9_3.deps.json
+/Users/amnat/Downloads/9 лаба/Lab9_3/Lab9_3/bin/Debug/net6.0/Lab9_3.runtimeconfig.json
+/Users/amnat/Downloads/9 лаба/Lab9_3/Lab9_3/bin/Debug/net6.0/Lab9_3.dll
+/Users/amnat/Downloads/9 лаба/Lab9_3/Lab9_3/bin/Debug/net6.0/Lab9_3.pdb
+/Users/amnat/Downloads/9 лаба/Lab9_3/Lab9_3/bin/Debug/net6.0/Newtonsoft.Json.dll
+/Users/amnat/Downloads/9 лаба/Lab9_3/Lab9_3/obj/Debug/net6.0/Lab9_3.csproj.AssemblyReference.cache
+/Users/amnat/Downloads/9 лаба/Lab9_3/Lab9_3/obj/Debug/net6.0/Lab9_3.GeneratedMSBuildEditorConfig.editorconfig
+/Users/amnat/Downloads/9 лаба/Lab9_3/Lab9_3/obj/Debug/net6.0/Lab9_3.AssemblyInfoInputs.cache
+/Users/amnat/Downloads/9 лаба/Lab9_3/Lab9_3/obj/Debug/net6.0/Lab9_3.AssemblyInfo.cs
+/Users/amnat/Downloads/9 лаба/Lab9_3/Lab9_3/obj/Debug/net6.0/Lab9_3.csproj.CoreCompileInputs.cache
+/Users/amnat/Downloads/9 лаба/Lab9_3/Lab9_3/obj/Debug/net6.0/Lab9_3.csproj.CopyComplete
+/Users/amnat/Downloads/9 лаба/Lab9_3/Lab9_3/obj/Debug/net6.0/Lab9_3.dll
+/Users/amnat/Downloads/9 лаба/Lab9_3/Lab9_3/obj/Debug/net6.0/refint/Lab9_3.dll
+/Users/amnat/Downloads/9 лаба/Lab9_3/Lab9_3/obj/Debug/net6.0/Lab9_3.pdb
+/Users/amnat/Downloads/9 лаба/Lab9_3/Lab9_3/obj/Debug/net6.0/Lab9_3.genruntimeconfig.cache
+/Users/amnat/Downloads/9 лаба/Lab9_3/Lab9_3/obj/Debug/net6.0/ref/Lab9_3.dll

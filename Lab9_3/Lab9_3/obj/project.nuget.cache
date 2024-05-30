@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "P95wKPqz3XpopmmfV9jEOGaAuzVL700kxuFlAb5F8Ks3r8I1hEoScdODsh1jlGzJfDfxOvF1zN+J6EIdZ1DyYw==",
+  "success": true,
+  "projectFilePath": "/Users/amnat/Downloads/9 лаба/Lab9_3/Lab9_3/Lab9_3.csproj",
+  "expectedPackageFiles": [
+    "/Users/amnat/.nuget/packages/newtonsoft.json/13.0.3/newtonsoft.json.13.0.3.nupkg.sha512"
+  ],
+  "logs": []
+}
