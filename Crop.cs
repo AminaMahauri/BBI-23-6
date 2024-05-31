@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Lab_Lerok
 {
-    public class Crop
+    public struct Crop
     {
         public string CropName { set; get; }
         public int Season { set; get; }
